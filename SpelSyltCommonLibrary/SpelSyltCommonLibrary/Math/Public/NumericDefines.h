@@ -1,0 +1,3 @@
+#pragma once
+
+#define FLOATING_POINT_ACCEPTANCE FLT_EPSILON

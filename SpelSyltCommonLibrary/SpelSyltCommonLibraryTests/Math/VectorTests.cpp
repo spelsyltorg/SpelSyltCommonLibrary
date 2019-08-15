@@ -1,15 +1,15 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
+#include "CustomAssertions.h"
+
 #include <../SpelSyltCommonLibrary/Math/Public/Vector2.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-#define VECTORS_ARE_EQUAL(Vec1, Vec2) Assert::AreEqual(Vec1.X, Vec2.X, L"Expected Vectors to match")
-
 namespace SSCLMathTests
 {
-	TEST_CLASS(SSCLVectorTests)
+	TEST_CLASS(SSCLVector2Tests)
 	{
 	public:
 		TEST_METHOD(DefaultContructedVectorXYIsZero)
@@ -84,6 +84,17 @@ namespace SSCLMathTests
 			CL::CVector2<float> Vec2(3.f, 5.f);
 
 			Assert::IsTrue(Vec1 == Vec2);
+		}
+
+		TEST_METHOD(VecMultipliedWithIdentityMatRemainsSame)
+		{
+			const CL::CVector2<float> ExpectedVec(4.f, 5.f);
+			CL::CVector2<float> Vec(ExpectedVec);
+			CL::CMat3x3 Identity;
+
+			Vec *= Identity;
+
+			Assert::IsTrue(Vec == ExpectedVec);
 		}
 
 		//TODO: Operators are mainly tested but we need clean tests for them!

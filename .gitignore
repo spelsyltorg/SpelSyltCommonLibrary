@@ -9,10 +9,12 @@
 #Compiled Dynamic Libs
 *.so
 *.dylib
+*.dll
 #Compiled Static libs
 *.lai
 *.la
 *.a
+*.lib
 #Fortran module files
 .mod
 #Executable
@@ -31,8 +33,11 @@
 *.enc
 *.ipch
 *.ilk
+*.exp
 #Project files
 .vs/
 *.user
 *.filter
 *.filters
+
+*FileListAbsolute.txt

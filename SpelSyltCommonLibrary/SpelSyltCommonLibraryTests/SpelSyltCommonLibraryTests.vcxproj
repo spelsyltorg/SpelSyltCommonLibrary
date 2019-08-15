@@ -170,6 +170,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Container\ArrayTest.cpp" />
     <ClCompile Include="Graphics\Transformable2DTests.cpp" />
     <ClCompile Include="Math\VectorTests.cpp" />
     <ClCompile Include="pch.cpp">

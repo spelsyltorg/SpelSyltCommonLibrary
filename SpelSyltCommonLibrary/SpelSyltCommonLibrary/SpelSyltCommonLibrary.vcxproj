@@ -138,6 +138,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Container\Public\Array.h" />
+    <ClInclude Include="Container\Public\ContainerAllocatorGrowing.h" />
+    <ClInclude Include="Container\Public\ContainerAllocatorBase.h" />
+    <ClInclude Include="Container\Public\ContainerAllocatorIterator.h" />
+    <ClInclude Include="Container\Public\ContainerAllocatorStatic.h" />
     <ClInclude Include="Graphics\Public\Transformable2D.h" />
     <ClInclude Include="Math\Public\Conversions.h" />
     <ClInclude Include="Math\Public\Mat3x3.h" />

@@ -1,6 +1,6 @@
 #pragma once
-#include "Math/Public/Mat3x3.h"
-#include "Math/Public/Vector2.h"
+#include <SpelSyltCommonLibrary/Math/Public/Mat3x3.h>
+#include <SpelSyltCommonLibrary/Math/Public/Vector2.h>
 
 namespace CL
 {

@@ -1,6 +1,6 @@
-#include "Graphics/Public/Transformable2D.h"
+#include <SpelSyltCommonLibrary/Graphics/Public/Transformable2D.h>
 
-#include "Math/Public/Conversions.h"
+#include <SpelSyltCommonLibrary/Math/Public/Conversions.h>
 
 #include <utility>
 

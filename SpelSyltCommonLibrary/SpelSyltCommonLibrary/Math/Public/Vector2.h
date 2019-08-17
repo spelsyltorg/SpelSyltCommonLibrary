@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
-#include "Math/Public/NumericDefines.h"
-#include "Math/Public/Mat3x3.h"
+#include <SpelSyltCommonLibrary/Math/Public/NumericDefines.h>
+#include <SpelSyltCommonLibrary/Math/Public/Mat3x3.h>
 
 //------------------------------------------------------------
 

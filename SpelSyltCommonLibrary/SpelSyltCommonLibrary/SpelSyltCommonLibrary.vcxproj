@@ -101,6 +101,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,7 +143,6 @@
     <ClInclude Include="Container\Public\Array.h" />
     <ClInclude Include="Container\Public\ContainerAllocatorGrowing.h" />
     <ClInclude Include="Container\Public\ContainerAllocatorBase.h" />
-    <ClInclude Include="Container\Public\ContainerAllocatorIterator.h" />
     <ClInclude Include="Container\Public\ContainerAllocatorStatic.h" />
     <ClInclude Include="Graphics\Public\Transformable2D.h" />
     <ClInclude Include="Math\Public\Conversions.h" />

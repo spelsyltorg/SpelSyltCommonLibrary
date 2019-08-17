@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Math/Public/NumericDefines.h"
+#include <SpelSyltCommonLibrary/Math/Public/NumericDefines.h>
 
 namespace CL
 {

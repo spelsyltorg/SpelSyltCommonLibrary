@@ -1,6 +1,5 @@
 #include <SpelSyltCommonLibrary/System/Public/EndianHelpers.h>
 
-#include <stdlib.h>
 #include <stdint.h>
 #include <intrin.h>
 
@@ -10,8 +9,8 @@ CL::ESystemEndianType CL::GetSystemEndianType()
 {
 	union
 	{
-		uint32_t asInt;
-		char asByteArray[4];
+		unsigned int asInt;
+		uint32_t asByteArray[4];
 	} intVal = {0x01020304};
 
 	return intVal.asByteArray[0] == 1 ? ESystemEndianType::Big : ESystemEndianType::Little;

@@ -9,5 +9,5 @@ namespace CL
 		float X;
 		float Y;
 		float Z;
-	}
-};
+	};
+}

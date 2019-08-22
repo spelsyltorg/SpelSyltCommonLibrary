@@ -1,7 +1,9 @@
+#include <utility>
+#include <cmath>
+
 #include <SpelSyltCommonLibrary/Graphics/Public/Transformable2D.h>
 #include <SpelSyltCommonLibrary/Math/Public/Conversions.h>
 
-#include <utility>
 
 //------------------------------------------------------------
 

@@ -33,11 +33,16 @@ namespace CL
 		void SetScale(float InScaleX, float InScaleY);
 		void SetScale(const CVector2f& InScale);
 		CVector2f GetScale() const;
+
+		void SetOrigin(const CVector2f& InOrigin);
+		void SetOrigin(float InOriginX, float InOriginY);
+		CVector2f GetOrigin() const;
 	private:
 		CMat3x3 Matrix;
 
 		CVector2f Position;
 		CVector2f ScaleVec;
+		CVector2f Origin;
 		float Rotation;
 
 	};

@@ -68,8 +68,8 @@ void CL::CTransformable2D::Move(const CVector2f& InOffset)
 
 void CL::CTransformable2D::SetPosition(float InX, float InY)
 {
-	Matrix.X() = InX;
-	Matrix.Y() = InY;
+	Matrix.X() = InX - Origin.X;
+	Matrix.Y() = InY - Origin.Y;
 }
 
 //------------------------------------------------------------
@@ -93,11 +93,18 @@ void CL::CTransformable2D::Rotate(float InAngle, bool IsRadians)
 	float AngleRad = IsRadians ? InAngle : Conv::ToRadians(InAngle);
 
 	Rotation += AngleRad;
-
 	CMat3x3 ZRotMat;
 	CMat3x3::MakeZRotation(ZRotMat, AngleRad);
 
+	CVector2f Pos = GetPosition();
+
+	Matrix.X() = -Origin.X;
+	Matrix.Y() = -Origin.Y;
+
 	Matrix *= ZRotMat;
+
+	Matrix.X() += Pos.X;
+	Matrix.Y() += Pos.Y;
 }
 
 //------------------------------------------------------------
@@ -186,6 +193,29 @@ void CL::CTransformable2D::SetScale(const CVector2f& InScale)
 CL::CVector2f CL::CTransformable2D::GetScale() const
 {
 	return std::move(ScaleVec);
+}
+
+//------------------------------------------------------------
+
+void CL::CTransformable2D::SetOrigin(const CVector2f & InOrigin)
+{
+	SetOrigin(InOrigin.X, InOrigin.Y);
+}
+
+//------------------------------------------------------------
+
+void CL::CTransformable2D::SetOrigin(float InOriginX, float InOriginY)
+{
+	Origin.X = InOriginX;
+	Origin.Y = InOriginY;
+	SetPosition(Position + Origin);
+}
+
+//------------------------------------------------------------
+
+CL::CVector2f CL::CTransformable2D::GetOrigin() const
+{
+	return std::move(Origin);
 }
 
 //------------------------------------------------------------

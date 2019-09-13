@@ -1,5 +1,6 @@
 #pragma once
 #include <cmath>
+#include <type_traits>
 #include <SpelSyltCommonLibrary/Math/Public/NumericDefines.h>
 #include <SpelSyltCommonLibrary/Math/Public/Mat3x3.h>
 

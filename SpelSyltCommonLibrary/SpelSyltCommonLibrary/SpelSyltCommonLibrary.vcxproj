@@ -101,7 +101,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(ProjectDir)..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,7 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(ProjectDir)..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,18 +149,16 @@
     <ClInclude Include="Math.h" />
     <ClInclude Include="Math\Public\Conversions.h" />
     <ClInclude Include="Math\Public\Mat3x3.h" />
+    <ClInclude Include="Math\Public\Mat4x4.h" />
     <ClInclude Include="Math\Public\NumericDefines.h" />
     <ClInclude Include="Math\Public\Vector2.h" />
     <ClInclude Include="Math\Public\Vector3.h" />
-    <ClInclude Include="Parsing\tinyxml2.h" />
-    <ClInclude Include="Parsing\XMLUtilities.h" />
     <ClInclude Include="System\Public\EndianHelpers.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Private\Transformable2D.cpp" />
     <ClCompile Include="Math\Private\Mat3x3.cpp" />
-    <ClCompile Include="Parsing\tinyxml2.cpp" />
-    <ClCompile Include="Parsing\XMLUtilities.cpp" />
+    <ClCompile Include="Math\Private\Mat4x4.cpp" />
     <ClCompile Include="System\Private\EndianHelpers.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -174,7 +174,7 @@ CL::CMat3x3 CL::CMat3x3::operator*(const CMat3x3& InRHS) const
 	//Row 2
 	Constructed.M12() = M12() * InRHS.M11() + M22() * InRHS.M12() + M32() * InRHS.M13();
 	Constructed.M22() = M12() * InRHS.M21() + M22() * InRHS.M22() + M32() * InRHS.M23();
-	Constructed.M33() = M12() * InRHS.M31() + M22() * InRHS.M32() + M32() * InRHS.M33();
+	Constructed.M32() = M12() * InRHS.M31() + M22() * InRHS.M32() + M32() * InRHS.M33();
 
 	//Row 3
 	Constructed.M13() = M13() * InRHS.M11() + M23() * InRHS.M12() + M33() * InRHS.M13();

@@ -31,7 +31,7 @@ CL::ECompressionResult CL::CCompressor::CompressData(const SDataBlob& InUncompre
 	const char* UncompressedData = InUncompressedData.GetData();
 
 	//We offset the compressed data as we need to leave space for the header without overwriting the actual data
-	char* CompressedData = &(OutCompressedData.GetData()[sizeof(SHeaderData)]);
+	char* CompressedData = OutCompressedData.GetData(sizeof(SHeaderData));
 
 	const ECompressionResult Result = CompressImplementation(
 		UncompressedData, 
@@ -66,7 +66,7 @@ CL::ECompressionResult CL::CCompressor::UncompressData(const SDataBlob& InCompre
 	const ECompressionFormat Format = static_cast<ECompressionFormat>(CompressionHeader.Format);
 	OutUncompressedData.SetSizeInBytes(UncompressedSize);
 
-	const char* CompressedData = &(InCompressedData.GetData()[sizeof(SHeaderData)]);
+	const char* CompressedData = InCompressedData.GetData(sizeof(SHeaderData));
 	const uint32_t CompressedDataSize = static_cast<uint32_t>(InCompressedData.GetUsedSize() - sizeof(SHeaderData));
 	
 	ECompressionResult Result = UncompressImplementation(

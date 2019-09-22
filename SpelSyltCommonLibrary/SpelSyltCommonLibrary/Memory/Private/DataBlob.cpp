@@ -66,16 +66,23 @@ void CL::SDataBlob::AddToBlob(const void* InData, const unsigned long long InDat
 
 //------------------------------------------------------------
 
-char* CL::SDataBlob::GetData()
+void CL::SDataBlob::CopyBlobData(void* InDestination, const unsigned long long InDataSize)
 {
-	return Data;
+	memcpy_s(InDestination, InDataSize, Data, InDataSize);
 }
 
 //------------------------------------------------------------
 
-const char* CL::SDataBlob::GetData() const
+char* CL::SDataBlob::GetData(unsigned long long InOffset)
 {
-	return Data;
+	return &Data[InOffset];
+}
+
+//------------------------------------------------------------
+
+const char* CL::SDataBlob::GetData(unsigned long long InOffset) const
+{
+	return &Data[InOffset];
 }
 
 //------------------------------------------------------------

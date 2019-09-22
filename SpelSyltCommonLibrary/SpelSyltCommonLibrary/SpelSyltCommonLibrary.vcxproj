@@ -151,6 +151,7 @@
     <ClInclude Include="Container\Public\ContainerAllocatorGrowing.h" />
     <ClInclude Include="Container\Public\ContainerAllocatorBase.h" />
     <ClInclude Include="Container\Public\ContainerAllocatorStatic.h" />
+    <ClInclude Include="File\Public\FileHandler.h" />
     <ClInclude Include="Graphics\Public\Transformable2D.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Math\Public\Conversions.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="System\Public\EndianHelpers.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="File\Private\FileHandler.cpp" />
     <ClCompile Include="Graphics\Private\Transformable2D.cpp" />
     <ClCompile Include="Math\Private\Mat3x3.cpp" />
     <ClCompile Include="Math\Private\Mat4x4.cpp" />

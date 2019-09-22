@@ -153,12 +153,16 @@
     <ClInclude Include="Math\Public\NumericDefines.h" />
     <ClInclude Include="Math\Public\Vector2.h" />
     <ClInclude Include="Math\Public\Vector3.h" />
+    <ClInclude Include="Memory\Public\CompressionLibrary.h" />
+    <ClInclude Include="Memory\Public\DataBlob.h" />
     <ClInclude Include="System\Public\EndianHelpers.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics\Private\Transformable2D.cpp" />
     <ClCompile Include="Math\Private\Mat3x3.cpp" />
     <ClCompile Include="Math\Private\Mat4x4.cpp" />
+    <ClCompile Include="Memory\Private\CompressionLibrary.cpp" />
+    <ClCompile Include="Memory\Private\DataBlob.cpp" />
     <ClCompile Include="System\Private\EndianHelpers.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

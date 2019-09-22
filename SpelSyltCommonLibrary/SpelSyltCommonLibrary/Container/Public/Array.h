@@ -10,8 +10,6 @@ namespace CL
 	template<typename T, typename Allocator = TContainerAllocatorStatic<T>>
 	class TArray
 	{
-		//static_assert(std::is_base_of(TContainerAllocatorBase<T>, Allocator).value(), "Allocator must be of Allocator type!");
-
 	public:
 		TArray();
 		TArray(unsigned int InSize);
@@ -30,6 +28,9 @@ namespace CL
 		T& EmplaceBack(TArgs... InArgs);
 		T& AddBack(const T& InElement);
 
+		bool AddUninitialized(const unsigned int InCount);
+
+		//Iterator support
 		TContainerAllocatorIterator<T> begin() { return Alloc.CreateBeginIT(); };
 		TContainerAllocatorIterator<T> end() { return Alloc.CreateEndIT(); };
 
@@ -130,6 +131,14 @@ inline T& CL::TArray<T, Allocator>::AddBack(const T& InElement)
 	const bool Result = Alloc.AddBack(InElement);
 	assert(Result && "Could not add? Are you using a static allocator with no space?");
 	return Alloc.GetLast();
+}
+
+//------------------------------------------------------------
+
+template<typename T, typename Allocator>
+inline bool CL::TArray<T, Allocator>::AddUninitialized(const unsigned int InCount)
+{
+	return Alloc.AddUninitialized(InCount);
 }
 
 //------------------------------------------------------------

@@ -8,11 +8,27 @@ namespace CL
 		: public TContainerAllocatorBase<T>
 	{
 	public:
+		bool AddUninitialized(const unsigned int InCount);
+
 		bool AddBack(const T& InT);
 
 		template<typename ...TArgs>
 		bool EmplaceBack(TArgs... InArgs);
 	};
+}
+
+//------------------------------------------------------------
+
+template<typename T>
+inline bool CL::TContainerAllocatorGrowing<T>::AddUninitialized(const unsigned int InCount)
+{
+	if (CurrentSize + InCount >= MaxSize)
+	{
+		Resize(CurrentSize + InCount);
+	}
+
+	CurrentSize += InCount;
+	return true;
 }
 
 //------------------------------------------------------------

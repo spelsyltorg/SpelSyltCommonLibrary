@@ -121,6 +121,35 @@ bool CL::CCompressor::HeaderIndicatesCompression(const SHeaderData& InHeader) co
 //Begin all third party compression libraries we support here
 //------------------------------------------------------------
 
+#pragma comment(lib, "Zlib/zlibstatic")
+
+#include <zlib.h>
+
+//------------------------------------------------------------
+
+namespace CompressionImplPrivate
+{
+	CL::ECompressionResult HandleZlibReturnValue(int InZlibResult)
+	{
+		if (InZlibResult == Z_OK)
+		{
+			return CL::ECompressionResult::Success;
+		}
+		else if (InZlibResult == Z_BUF_ERROR)
+		{
+			return CL::ECompressionResult::BufferSizeError;
+		}
+		else if (InZlibResult == Z_MEM_ERROR)
+		{
+			return CL::ECompressionResult::MemoryError;
+		}
+	
+		return CL::ECompressionResult::CompressionError;
+	}
+}
+
+//------------------------------------------------------------
+
 CL::ECompressionResult CL::CCompressor::CompressImplementation(
 	const void* InUncompressedData, 
 	const uint32_t InUncompressedDataSize,
@@ -131,7 +160,8 @@ CL::ECompressionResult CL::CCompressor::CompressImplementation(
 	switch (InFormat)
 	{
 	case CL::ECompressionFormat::Zlib:
-		//Needs impl.
+		const int ZLibResult = compress((Bytef*)OutCompressedData, (uLongf*)&InOutCompressedSize, (const Bytef*)InUncompressedData, (uLongf)InUncompressedDataSize);
+		return CompressionImplPrivate::HandleZlibReturnValue(ZLibResult);
 		break;
 	}
 
@@ -150,9 +180,8 @@ CL::ECompressionResult CL::CCompressor::UncompressImplementation(
 	switch (InFormat)
 	{
 	case CL::ECompressionFormat::Zlib:
-		//Needs impl.
-		break;
-	default:
+		const int ZLibResult = uncompress((Bytef*)OutUncompressedData, (uLongf*)&OutUncompressedSize, (const Bytef*)InCompressedData, (uLongf)InCompressedDataSize);
+		return CompressionImplPrivate::HandleZlibReturnValue(ZLibResult);
 		break;
 	}
 
@@ -169,8 +198,7 @@ CL::ECompressionResult CL::CCompressor::CompressBoundImplementation(
 	switch (InFormat)
 	{
 	case CL::ECompressionFormat::Zlib:
-		break;
-	default:
+		OutBound = static_cast<uint32_t>(compressBound((uLongf)InUncompressedDataSize));
 		break;
 	}
 
